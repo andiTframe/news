@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect} from 'react';
 import MainMenuThree from "../../components/MainMenuThree";
 import BannerSectionThree from "../../components/BannerSectionThree";
 import FollowUs from "../../components/FollowUs";
@@ -20,7 +20,8 @@ import quote from "../../doc/img/icon/q4.png";
 import big2 from "../../doc/img/blog/big2.jpg";
 import OurBlogSectionTwo from "../../components/OurBlogSectionTwo";
 import BlogComment from "../../components/BlogComment";
-
+import axios from 'axios'
+import { useState } from 'react';
 const financePosts = [
     {
         photo: finance41,
@@ -34,11 +35,33 @@ const financePosts = [
     },
 ];
 
-const PostOneHThreePage = () => {
+const PostOneHThreePage = (props) => {
+    const [imageUrl, setImageUrl] = useState('');
+    const [news, setNews] = useState({});
+
+    useEffect(()=>{
+       if (props.match.params.id) {
+        axios.get(`http://localhost:8888/news/wp-json/wp/v2/news/${props.match.params.id}`).then((res)=>{
+            setNews(res.data)
+         }).catch(err=>{
+             console.log(err,"errrprprr")
+         })
+        
+       }
+    },[])
+
+    useEffect(()=>{
+        axios.get(`http://localhost:8888/news/wp-json/wp/v2/media/${news.featured_media}`).then((res)=>{
+            setImageUrl(res.data.source_url)
+        }).catch(err=>{
+            console.log(err,"errrprprr")
+        })
+    },[news])
+
     return (
         <Fragment>
             <MainMenuThree/>
-            <div className="archives layout3 post post1 padding-top-30">
+            <div style={{paddingTop:70}} className="archives layout3 post post1 padding-top-30">
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
@@ -71,7 +94,7 @@ const PostOneHThreePage = () => {
                             </div>
                             <div className="space-40"/>
                             <div className="border-radious5">
-                                <img src={single_post1} alt="thumb"/>
+                                <img src={imageUrl} alt="thumb"/>
                             </div>
                             <div className="space-20"/>
                             <div className="row">

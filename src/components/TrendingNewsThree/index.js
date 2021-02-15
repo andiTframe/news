@@ -51,7 +51,7 @@ const TrendingNewsThree = () => {
                     <div className="single_post post_type3 xs-mb90 post_type15">
                         <div className="post_img border-radious5">
                             <div className="img_wrap">
-                                <Link to="/home-three">
+                                <Link to="/">
                                     <img src={trend31} alt="trend31"/>
                                 </Link>
                             </div>

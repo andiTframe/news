@@ -104,8 +104,9 @@ const financePosts = [
 const NotFoundThreePage = () => {
     return (
         <Fragment>
-            <MainMenuThree/>
-            <div className="inner_table">
+           <div className='theme-4'>
+           <MainMenuThree/>
+            <div style={{paddingTop:70}} className="inner_table">
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
@@ -219,6 +220,7 @@ const NotFoundThreePage = () => {
             </div>
             <div className="space-70"/>
             <BannerSection/>
+           </div>
         </Fragment>
     )
 };

@@ -33,7 +33,7 @@ const FooterAreaThree = () => {
                     <div className="col-md-6 col-lg-4">
                         <div className="single_footer3 mb30">
                             <div className="logo">
-                                <Link to="/home-three">
+                                <Link to="/">
                                     <img src={logo42} alt="logo"/>
                                 </Link>
                                 <div className="space-10"/>

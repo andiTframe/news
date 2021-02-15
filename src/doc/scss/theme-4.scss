@@ -343,13 +343,14 @@
     position: relative;
     z-index: 2;
   }
-
-  .menu4.home4menu {
-    position: absolute;
+  .menu4{
+    position: fixed ;
+    left: 0;
     left: 0;
     width: 100%;
     z-index: 99;
   }
+  
 
   .welcome_list {
     position: absolute;
