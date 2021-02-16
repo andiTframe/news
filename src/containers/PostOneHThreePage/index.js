@@ -46,16 +46,24 @@ const PostOneHThreePage = (props) => {
          }).catch(err=>{
              console.log(err,"errrprprr")
          })
+
+        axios.get(`http://localhost:8888/news/wp-json/wp/v2/`).then((res)=>{
+            console.log(res.data)
+         }).catch(err=>{
+             console.log(err,"errrprprr")
+         })
         
        }
     },[])
 
     useEffect(()=>{
-        axios.get(`http://localhost:8888/news/wp-json/wp/v2/media/${news.featured_media}`).then((res)=>{
+        if (news.featured_media) {
+            axios.get(`http://localhost:8888/news/wp-json/wp/v2/media/${news.featured_media}`).then((res)=>{
             setImageUrl(res.data.source_url)
         }).catch(err=>{
             console.log(err,"errrprprr")
         })
+        }
     },[news])
 
     return (

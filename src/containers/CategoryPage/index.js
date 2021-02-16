@@ -85,20 +85,55 @@ const financePosts = [
 
 const SportsThreePage = (props) => {
   const [posts, setPosts] = useState([]);
+  const [pagination, setPagination] = useState(1);
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:8888/news/wp-json/wp/v2/news")
+  const fetchPosts = async () => {
+    let postsWithoutMedia = [];
+    let category = props.match.params.id;
+    let id;
+    if (category === "world") id = 2;
+    if (category === "politics") id = 3;
+    if (category === "business") id = 4;
+    if (category === "tech") id = 5;
+    if (category === "health") id = 6;
+    if (category === "sports") id = 7;
+    if (category === "style") id = 8;
+    if (category === "magazine") id = 9;
+    if (category === "food") id = 10;
+
+    await axios
+      .get(`http://localhost:8888/news/wp-json/wp/v2/news?categories=${id},per_page=1`)
       .then((res) => {
-        setPosts(res.data);
-
-        console.log(res.data[0])
+        postsWithoutMedia = [...res.data];
       })
       .catch((err) => {
-        console.log(err, "errrprprr");
+        console.log(err, "error");
       });
-  }, []);
 
+    await axios
+      .get(`http://localhost:8888/news/wp-json/wp/v2/media`)
+      .then((res) => {
+        for (const media of res.data) {
+          for (const post of postsWithoutMedia) {
+            if (media.id === post.featured_media) {
+              post.image =
+                media?.media_details?.sizes?.medium_large?.source_url;
+            }
+          }
+        }
+      })
+      .catch((err) => {
+        console.log(err, "error");
+      });
+
+    setPosts(postsWithoutMedia);
+  };
+
+  useEffect(() => {
+    if (props.match.params.id) {
+      fetchPosts();
+    }
+  }, [props.match.params.id]);
 
   return (
     <Fragment>
@@ -152,10 +187,7 @@ const SportsThreePage = (props) => {
                           <div className="post_img border-radious5">
                             <div className="img_wrap">
                               <Link to="">
-                                <img
-                                  src={`http://localhost:8888/news/wp-json/wp/v2/media/${item.featured_media}`}
-                                  alt="thumb"
-                                />
+                                <img src={`${item.image}`} alt="thumb" />
                               </Link>
                             </div>
                             <span className="tranding border_tranding">
@@ -189,7 +221,9 @@ const SportsThreePage = (props) => {
                             </div>
                             <div className="space-5" />
                             <h4>
-                              <Link to={`/post/${item.id}`}>{item.title.rendered}</Link>
+                              <Link to={`/post/${item.id}`}>
+                                {item.title.rendered}
+                              </Link>
                             </h4>
                             <div className="space-10" />
                             {/* <p className="post-p">{item.description}</p> */}
