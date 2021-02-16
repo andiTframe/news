@@ -8,10 +8,10 @@ import {Link} from "react-router-dom";
 import FontAwesome from "../../components/uiStyle/FontAwesome";
 import CategoryFour from "../../components/CategoryFour";
 import PostOnePagination from "../../components/PostOnePagination";
+import ReactHtmlParser from 'react-html-parser'; 
 
 import banner4 from '../../doc/img/bg/banner4.png';
 import finance41 from "../../doc/img/finance/finance41.jpg";
-import single_post1 from "../../doc/img/blog/single_post1.jpg";
 import author2 from "../../doc/img/author/author2.png";
 import smail1 from "../../doc/img/blog/smail1.jpg";
 import big1 from "../../doc/img/blog/big1.jpg";
@@ -22,6 +22,7 @@ import OurBlogSectionTwo from "../../components/OurBlogSectionTwo";
 import BlogComment from "../../components/BlogComment";
 import axios from 'axios'
 import { useState } from 'react';
+
 const financePosts = [
     {
         photo: finance41,
@@ -43,12 +44,6 @@ const PostOneHThreePage = (props) => {
        if (props.match.params.id) {
         axios.get(`http://localhost:8888/news/wp-json/wp/v2/news/${props.match.params.id}`).then((res)=>{
             setNews(res.data)
-         }).catch(err=>{
-             console.log(err,"errrprprr")
-         })
-
-        axios.get(`http://localhost:8888/news/wp-json/wp/v2/`).then((res)=>{
-            console.log(res.data)
          }).catch(err=>{
              console.log(err,"errrprprr")
          })

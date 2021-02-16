@@ -684,6 +684,38 @@
           }
         }
       }
+      p {
+        font-size: 12px !important;
+        position: relative;
+        z-index: 2;
+        line-height: 14px;
+        font-weight: 500;
+        margin-bottom: 0;
+
+        &:first-child {
+          color: $v4meta_color;
+        }
+
+        &:last-child {
+          margin-left: 20px;
+          color: $body_color;
+          opacity: .75;
+
+          &:before {
+            position: absolute;
+            content: "|";
+            height: 20px;
+            width: 10px;
+            left: -18px;
+            top: 50%;
+            margin-top: -10px;
+            line-height: 20px;
+            color: $body_color;
+            opacity: .3;
+            text-align: center;
+          }
+        }
+      }
     }
   }
 

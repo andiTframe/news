@@ -656,6 +656,9 @@ a.social_medium {
       a {
         font-weight: $wightRegular;
       }
+      p {
+        font-weight: $wightRegular;
+      }
 
       &:before {
         left: -14px;
@@ -2632,6 +2635,10 @@ a.cbtn3 {
     margin-left: 0 !important;
   }
 
+  .cpagination {
+    display: flex;
+    justify-content: space-between;
+  }
 
   .cpagination li a {
     height: 40px;
@@ -2792,4 +2799,27 @@ a.cbtn3 {
 .page_comments ul {
   margin: 0;
   padding: 0;
+}
+
+.paginationA{
+  min-height: 100px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  & .paginationBtns{
+    padding: 20px;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: transparent 1px solid;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px rgb(231, 230, 230);
+  }
+
+  & .paginationBtns:active{
+    transform: scale(0.9);
+  }
+  
 }

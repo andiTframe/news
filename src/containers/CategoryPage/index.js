@@ -7,66 +7,10 @@ import NewsLetter from "../../components/NewsLetter";
 import { Link } from "react-router-dom";
 import FontAwesome from "../../components/uiStyle/FontAwesome";
 import axios from "axios";
+import { compareAsc, format } from 'date-fns'
 
 import banner4 from "../../doc/img/bg/banner4.png";
 import finance41 from "../../doc/img/finance/finance41.jpg";
-import international41 from "../../doc/img/international/international41.jpg";
-import international42 from "../../doc/img/trending/trend31.jpg";
-import international43 from "../../doc/img/international/international43.jpg";
-import international44 from "../../doc/img/trending/trend31.jpg";
-import international45 from "../../doc/img/international/international45.jpg";
-
-const featurePosts = [
-  {
-    photo: international41,
-    title: "Verizon is buying b2b video conferen firm Blue Jeans",
-    description:
-      "The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with",
-  },
-  {
-    photo: international42,
-    title: "Investors explain COVID-19’s impact on consumer startups",
-    description:
-      "The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with",
-  },
-  {
-    photo: international43,
-    title:
-      "Unraveling immigration politics and Silicon Valley ethic with Jaclyn…",
-    description:
-      "The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with",
-  },
-  {
-    photo: international42,
-    title: "Bridgecrew announces $14M Series A to automate cloud security",
-    description:
-      "The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with",
-  },
-  {
-    photo: international44,
-    title: "She tried for many years pregnant & happy and thing going..",
-    description:
-      "The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with",
-  },
-  {
-    photo: international42,
-    title: "Bridgecrew announces $14M Series A to automate cloud security",
-    description:
-      "The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with",
-  },
-  {
-    photo: international44,
-    title: "She tried for many years pregnant & happy and thing going..",
-    description:
-      "The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with",
-  },
-  {
-    photo: international45,
-    title: "She tried for many years pregnant & happy and thing going..",
-    description:
-      "The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with",
-  },
-];
 
 const financePosts = [
   {
@@ -88,7 +32,6 @@ const SportsThreePage = (props) => {
   const [pagination, setPagination] = useState(1);
 
   const fetchPosts = async () => {
-    let postsWithoutMedia = [];
     let category = props.match.params.id;
     let id;
     if (category === "world") id = 2;
@@ -102,38 +45,21 @@ const SportsThreePage = (props) => {
     if (category === "food") id = 10;
 
     await axios
-      .get(`http://localhost:8888/news/wp-json/wp/v2/news?categories=${id},per_page=1`)
+      .get(`http://localhost:8888/news/wp-json/wp/v2/news?categories=${id}&page=${pagination}&_embed`)
       .then((res) => {
-        postsWithoutMedia = [...res.data];
+        setPosts(res.data);
       })
       .catch((err) => {
         console.log(err, "error");
       });
 
-    await axios
-      .get(`http://localhost:8888/news/wp-json/wp/v2/media`)
-      .then((res) => {
-        for (const media of res.data) {
-          for (const post of postsWithoutMedia) {
-            if (media.id === post.featured_media) {
-              post.image =
-                media?.media_details?.sizes?.medium_large?.source_url;
-            }
-          }
-        }
-      })
-      .catch((err) => {
-        console.log(err, "error");
-      });
-
-    setPosts(postsWithoutMedia);
   };
 
   useEffect(() => {
     if (props.match.params.id) {
       fetchPosts();
     }
-  }, [props.match.params.id]);
+  }, [props.match.params.id, pagination]);
 
   return (
     <Fragment>
@@ -173,21 +99,22 @@ const SportsThreePage = (props) => {
                   </div>
                 </div>
               </div>
-
               <div className="row justify-content-center">
                 {posts.length > 0 &&
                   posts.map((item, i) => {
+                    let date =item.date.split('T')[0];
+                    console.log(item)
                     return (
                       <div key={i} className="col-lg-6">
                         <div
                           className={`single_post post_type3 xs-mb90 post_type15 ${
-                            i + 1 < featurePosts.length ? "mb30" : ""
+                            i + 1 < posts.length ? "mb30" : ""
                           }`}
                         >
                           <div className="post_img border-radious5">
                             <div className="img_wrap">
-                              <Link to="">
-                                <img src={`${item.image}`} alt="thumb" />
+                              <Link to={`/post/${item.id}`}>
+                                <img style={{minHeight:'220px'}} src={`${item._embedded?.["wp:featuredmedia"]?.[0]?.["source_url"]}`} alt="thumb" />
                               </Link>
                             </div>
                             <span className="tranding border_tranding">
@@ -197,13 +124,13 @@ const SportsThreePage = (props) => {
                           <div className="single_post_text">
                             <div className="row">
                               <div className="col-9 align-self-cnter">
-                                <div className="meta3">
-                                  <Link to="">TECHNOLOGY</Link>
-                                  <Link to="">March 26, 2020</Link>
+                                <div style={{display:'flex'}} className="meta3">
+                                  <p style={{textTransform:'capitalize'}}>{props.match.params.id}</p>
+                                  <p >{format(new Date(date),"PP")}</p>
                                 </div>
                               </div>
                               <div className="col-3 align-self-cnter">
-                                <div className="share_meta4 text-right">
+                                {/* <div className="share_meta4 text-right">
                                   <ul className="inline">
                                     <li>
                                       <Link to="/">
@@ -216,7 +143,7 @@ const SportsThreePage = (props) => {
                                       </Link>
                                     </li>
                                   </ul>
-                                </div>
+                                </div> */}
                               </div>
                             </div>
                             <div className="space-5" />
@@ -233,40 +160,9 @@ const SportsThreePage = (props) => {
                     );
                   })}
               </div>
-              <div className="cpagination v4 padding5050">
-                <nav aria-label="Page navigation example">
-                  <ul className="pagination">
-                    <li className="page-item">
-                      <Link className="page-link" to="/" aria-label="Previous">
-                        <span aria-hidden="true">
-                          <FontAwesome name="caret-left" />
-                        </span>
-                      </Link>
-                    </li>
-                    <li className="page-item">
-                      <Link className="page-link" to="/">
-                        1
-                      </Link>
-                    </li>
-                    <li className="page-item">
-                      <Link className="page-link" to="/">
-                        ..
-                      </Link>
-                    </li>
-                    <li className="page-item">
-                      <Link className="page-link" to="/">
-                        5
-                      </Link>
-                    </li>
-                    <li className="page-item">
-                      <Link className="page-link" to="/" aria-label="Next">
-                        <span aria-hidden="true">
-                          <FontAwesome name="caret-right" />
-                        </span>
-                      </Link>
-                    </li>
-                  </ul>
-                </nav>
+              <div className='paginationA'>
+                  {pagination>1&&<div onClick={()=>setPagination(pagination-1)} className='paginationBtns'><p>Prev</p></div>}
+                  {posts.length>9&&<div onClick={()=>setPagination(pagination+1)} className='paginationBtns'><p>Next</p></div>}
               </div>
             </div>
             <div className="col-md-6 col-lg-4">
