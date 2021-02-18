@@ -518,7 +518,7 @@
     padding: 0;
   }
 
-  @media (min-width: 992px) {
+  @media (min-width: 1016px) {
     .navbar {
       position: static;
       top: 70px;
@@ -565,7 +565,7 @@
   /* Responsive styles
   ================================================== */
 
-  @media (min-width: 992px) {
+  @media (min-width: 1016px) {
     .header {
       min-height: 70px;
     }
@@ -674,7 +674,7 @@
 
 
   /* Medium Devices, Desktops */
-  @media (min-width: 992px) and (max-width: 1199px) {
+  @media (min-width: 1016px) and (max-width: 1199px) {
     /* Header */
 
     .navbar-nav li:hover .dropdown-menu {
@@ -743,7 +743,7 @@
   }
 
   /* Small Devices, Tablets */
-  @media (min-width: 768px) and (max-width: 991px) {
+  @media (min-width: 768px) and (max-width: 1016px) {
     /* top info */
 
     ul.top-info li {
@@ -1322,7 +1322,7 @@
   /* Custom, iPhone Retina */
 
 
-  @media (max-width: 991px) {
+  @media (max-width: 1016px) {
 
     .featured-slider .item .featured-post .post-content {
       padding: 20px;

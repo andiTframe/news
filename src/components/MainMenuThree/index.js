@@ -4,7 +4,7 @@ import FontAwesome from "../uiStyle/FontAwesome";
 import SidebarMenu from "../SidebarMenu";
 import SearchModal from "../SearchModal";
 
-const menus = [
+export const menus = [
     {
         linkText: 'World',
         link: '/category/world'
