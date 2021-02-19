@@ -14,6 +14,7 @@ import finance41 from "../../doc/img/finance/finance41.jpg";
 import Loader from "../Loader/Loader";
 import { useDispatch } from "react-redux";
 import { addNextPost, addPrevPost } from "../../store/actions";
+import { turnCategoryIntoId } from "../../utils/commonFunctions";
 
 const financePosts = [
   {
@@ -35,7 +36,6 @@ const SportsThreePage = (props) => {
   const [pagination, setPagination] = useState(1);
   const [forceRender, setForceRender] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [currentIndex, setCurrentIndex] = useState();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -48,17 +48,9 @@ const SportsThreePage = (props) => {
   const fetchPosts = async () => {
     setLoading(true);
     document.querySelector("body").style.overflow = "hidden";
+    
     let category = props.match.params.id;
-    let id;
-    if (category === "world") id = 2;
-    if (category === "politics") id = 3;
-    if (category === "business") id = 4;
-    if (category === "tech") id = 5;
-    if (category === "health") id = 6;
-    if (category === "sports") id = 7;
-    if (category === "style") id = 8;
-    if (category === "magazine") id = 9;
-    if (category === "food") id = 10;
+    let id = turnCategoryIntoId(category);
 
     await axios
       .get(
@@ -198,7 +190,7 @@ const SportsThreePage = (props) => {
                               style={{ textTransform: "capitalize" }}
                               className="post-p"
                             >
-                              {item.acf.newsdescription}
+                              {item.acf.newsdescription.slice(0,100)}...
                             </p>
                           </div>
                         </div>
@@ -232,7 +224,7 @@ const SportsThreePage = (props) => {
                   <img src={banner4} alt="banner4" />
                 </Link>
               </div>
-              <WidgetFinanceTwo forceRender={forceRender} />
+              <WidgetFinanceTwo id={props.match.params.id} forceRender={forceRender} />
               <NewsLetter
                 titleClass="white"
                 className="news_letter4 border-radious5"

@@ -19,6 +19,7 @@ import BlogComment from "../../components/BlogComment";
 import axios from "axios";
 import { useState } from "react";
 import Loader from "../Loader/Loader";
+import { turnIdIntoCategory } from "../../utils/commonFunctions";
 
 const PostOneHThreePage = (props) => {
   const [news, setNews] = useState(null);
@@ -37,17 +38,8 @@ const PostOneHThreePage = (props) => {
           `http://localhost:8888/news/wp-json/wp/v2/news/${props.match.params.id}?_embed`
         )
         .then((res) => {
-          let category;
           let id = res.data.categories[0];
-          if (id === 2) category = "world";
-          if (id === 3) category = "politics";
-          if (id === 4) category = "business";
-          if (id === 5) category = "tech";
-          if (id === 6) category = "health";
-          if (id === 7) category = "sports";
-          if (id === 8) category = "style";
-          if (id === 9) category = "magazine";
-          if (id === 10) category = "food";
+          let category = turnIdIntoCategory(id);
 
           let newsWithNoCategory = { ...res.data };
           newsWithNoCategory.category = category;

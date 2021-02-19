@@ -6,6 +6,10 @@ import SearchModal from "../SearchModal";
 
 export const menus = [
     {
+        linkText: 'Trending',
+        link: '/category/trending'
+    },
+    {
         linkText: 'World',
         link: '/category/world'
     },

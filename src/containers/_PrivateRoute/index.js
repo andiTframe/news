@@ -47,13 +47,13 @@ const PrivateRoute = (props) => {
                 )}
             />
 
-            {props.home_style === 2 ?
+            {/* {props.home_style === 2 ?
                 <FooterAreaTwo/>
                 : props.home_style === 3 ?
                     <FooterAreaThree/>
                     : props.home_style === 4 ?
                         <FooterArea className="dark-2"/>
-                        : <FooterArea className="primay_bg"/>}
+                        : <FooterArea className="primay_bg"/>} */}
         </div>
     )
 };
