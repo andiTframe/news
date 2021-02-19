@@ -16,30 +16,11 @@ import FollowUs from "../../components/FollowUs";
 import WidgetOpinionNews from "../../components/WidgetOpinionNews";
 import NewsLetter from "../../components/NewsLetter";
 import CategoryFour from "../../components/CategoryFour";
-
 import banner4 from '../../doc/img/bg/banner4.png';
 import banner42 from '../../doc/img/bg/banner42.png';
-import finance41 from '../../doc/img/finance/finance41.jpg';
 
 
 
-const financePosts2 = [
-    {
-        photo: finance41,
-        title: 'Copa America: Luis Suarez from devastated US',
-        description: 'The property, complete with seates screening from room amphitheater pond with sandy'
-    },
-    {
-        photo: finance41,
-        title: 'Copa America: Luis Suarez from devastated US',
-        description: 'The property, complete with seates screening from room amphitheater pond with sandy'
-    },
-    {
-        photo: finance41,
-        title: 'Copa America: Luis Suarez from devastated US',
-        description: 'The property, complete with seates screening from room amphitheater pond with sandy'
-    },
-];
 
 const HomePageThree = () => {
     return (
@@ -99,7 +80,7 @@ const HomePageThree = () => {
                                         <div className="col-md-6 col-xl-12">
                                             <NewsLetter titleClass="white" className="news_letter4 border-radious5"/>
                                             <CategoryFour/>
-                                            <WidgetFinanceTwo data={financePosts2} title="Inernational"/>
+                                            <WidgetFinanceTwo title="Inernational"/>
                                             <div className="banner2 mb30 border-radious5  d-md-none d-xl-block">
                                                 <Link to="/">
                                                     <img src={banner4} alt="banner4"/>
