@@ -40,10 +40,11 @@ const SportsThreePage = (props) => {
 
     await axios
       .get(
-        `http://localhost:8888/news/wp-json/wp/v2/news?categories=${id}&page=${pagination}&per_page=11&_embed`
+        `https://news.tframe.de/news/wp-json/wp/v2/news?categories=${id}&page=${pagination}&per_page=11&_embed`
       )
       .then((res) => {
         setPosts(res.data);
+        console.log(res.data)
         document.querySelector("body").style.overflow = "auto";
         setLoading(false);
       })

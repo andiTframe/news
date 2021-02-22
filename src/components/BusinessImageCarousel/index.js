@@ -18,7 +18,7 @@ const BusinessImageCarousel = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8888/news/wp-json/wp/v2/news?categories=5&per_page=5&_embed`)
+      .get(`https://news.tframe.de/news/wp-json/wp/v2/news?categories=5&per_page=5&_embed`)
       .then((res) => {
         setPostsTech(res.data);
       })
@@ -29,7 +29,7 @@ const BusinessImageCarousel = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8888/news/wp-json/wp/v2/news?categories=4&per_page=5&_embed`)
+      .get(`https://news.tframe.de/news/wp-json/wp/v2/news?categories=4&per_page=5&_embed`)
       .then((res) => {
         setPostsBizz(res.data);
       })

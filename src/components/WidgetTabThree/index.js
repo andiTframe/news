@@ -64,7 +64,7 @@ const WidgetTabThree = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8888/news/wp-json/wp/v2/news?categories=10&per_page=7&_embed`)
+      .get(`https://news.tframe.de/news/wp-json/wp/v2/news?categories=10&per_page=7&_embed`)
       .then((res) => {
         setPosts(res.data);
       })

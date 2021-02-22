@@ -13,7 +13,7 @@ const OurBlogSectionTwo = () => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8888/news/wp-json/wp/v2/news?page=1&per_page=3&_embed`
+        `https://news.tframe.de/news/wp-json/wp/v2/news?page=1&per_page=3&_embed`
       )
       .then((res) => {
         setLatestPosts(res.data);

@@ -10,7 +10,7 @@ const GalleryCarousel = () => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8888/news/wp-json/wp/v2/news?categories=10&per_page=2&_embed`
+        `https://news.tframe.de/news/wp-json/wp/v2/news?categories=10&per_page=2&_embed`
       )
       .then((res) => {
         setPosts(res.data);
