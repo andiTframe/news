@@ -6,12 +6,11 @@ import SportsThreePage from "../CategoryPage";
 import ContactUsThreePage from "../ContactUsThreePage";
 import NotFoundThreePage from "../NotFoundThreePage";
 import PostOneHThreePage from "../PostOneHThreePage";
+import LegalPage from '../LegalPage';
 
 const Routes = () => {
     return (
         <Switch>
-          
-            {/*home page three*/}
             <PrivateRoute
                 exact
                 home_style={3}
@@ -33,15 +32,15 @@ const Routes = () => {
             <PrivateRoute
                 exact
                 home_style={3}
-                parentClass="theme-4 bg4"
-                path="/404"
-                component={NotFoundThreePage}/>
+                parentClass="theme-4"
+                path="/post/:id"
+                component={PostOneHThreePage}/>        
             <PrivateRoute
                 exact
                 home_style={3}
                 parentClass="theme-4"
-                path="/post/:id"
-                component={PostOneHThreePage}/>        
+                path="/legalInfo"
+                component={LegalPage}/>        
             <Route exact component={NotFoundThreePage}/>
         </Switch>
     );

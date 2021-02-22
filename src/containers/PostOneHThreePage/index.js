@@ -20,6 +20,7 @@ import axios from "axios";
 import { useState } from "react";
 import Loader from "../Loader/Loader";
 import { turnIdIntoCategory } from "../../utils/commonFunctions";
+import Footer from "../Footer";
 
 const PostOneHThreePage = (props) => {
   const [news, setNews] = useState(null);
@@ -207,6 +208,7 @@ const PostOneHThreePage = (props) => {
       {/* <BlogComment theme={3} /> */}
       {/* <div className="space-60" /> */}
       <BannerSectionThree />
+      <Footer/>
     </Fragment>
   );
 };

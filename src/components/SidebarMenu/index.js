@@ -22,7 +22,7 @@ const SidebarMenu = ({menus, sideShow, setSideShow, className}) => {
                             >{item.linkText}
                                 <FontAwesome
                                     name={sMenu === item.id ? 'angle-down active' : 'angle-down'}/></p>
-                            : <NavLink exact className={sMenu === item.id ? 'active' : ''}
+                            : <NavLink onClick={() => setSideShow(false)} exact className={sMenu === item.id ? 'active' : ''}
                                        to={item.link}>{item.linkText}</NavLink>}
                         {item.child ?
                             <Collapse isOpen={sMenu === item.id}>
@@ -38,13 +38,13 @@ const SidebarMenu = ({menus, sideShow, setSideShow, className}) => {
                                                     <FontAwesome
                                                         name={stMenu === sub_item.id ? 'angle-down active' : 'angle-down'}/>
                                                 </p>
-                                                : <NavLink exact
+                                                : <NavLink onClick={() => setSideShow(false)} exact
                                                            to={sub_item.link}>{sub_item.linkText}</NavLink>}
                                             {sub_item.third_menu ?
                                                 <Collapse isOpen={stMenu === sub_item.id}>
                                                     <ul className="thirdMenu">
                                                         {sub_item.third_menu.map((third_item, i) => (
-                                                            <li key={i}><NavLink
+                                                            <li key={i}><NavLink onClick={() => setSideShow(false)}
                                                                 to={third_item.link}>{third_item.linkText}</NavLink>
                                                             </li>
                                                         ))}

@@ -10,26 +10,12 @@ import axios from "axios";
 import { format } from "date-fns";
 
 import banner4 from "../../doc/img/bg/banner4.png";
-import finance41 from "../../doc/img/finance/finance41.jpg";
 import Loader from "../Loader/Loader";
 import { useDispatch } from "react-redux";
 import { addNextPost, addPrevPost } from "../../store/actions";
 import { turnCategoryIntoId } from "../../utils/commonFunctions";
+import Footer from "../Footer";
 
-const financePosts = [
-  {
-    photo: finance41,
-    title: "Copa America: Luis Suarez from devastated US",
-    description:
-      "The property, complete with seates screening from room amphitheater pond with sandy",
-  },
-  {
-    photo: finance41,
-    title: "Copa America: Luis Suarez from devastated US",
-    description:
-      "The property, complete with seates screening from room amphitheater pond with sandy",
-  },
-];
 
 const SportsThreePage = (props) => {
   const [posts, setPosts] = useState([]);
@@ -54,7 +40,7 @@ const SportsThreePage = (props) => {
 
     await axios
       .get(
-        `http://localhost:8888/news/wp-json/wp/v2/news?categories=${id}&page=${pagination}&_embed`
+        `http://localhost:8888/news/wp-json/wp/v2/news?categories=${id}&page=${pagination}&per_page=11&_embed`
       )
       .then((res) => {
         setPosts(res.data);
@@ -123,7 +109,7 @@ const SportsThreePage = (props) => {
               </div>
               <div className="row justify-content-center">
                 {posts.length > 0 &&
-                  posts.map((item, i) => {
+                  posts.slice(0,10).map((item, i) => {
                     let date = item.date.split("T")[0];
                     return (
                       <div key={i} className="col-lg-6">
@@ -201,15 +187,27 @@ const SportsThreePage = (props) => {
               <div className="paginationA">
                 {pagination > 1 && (
                   <div
-                    onClick={() => setPagination(pagination - 1)}
+                    onClick={() => {
+                      setPagination(pagination - 1);
+                      window.scroll({
+                        top:0,
+                        behavior:'smooth'
+                      })
+                    }}
                     className="paginationBtns"
                   >
                     <p>Prev</p>
                   </div>
                 )}
-                {posts.length > 9 && (
+                {posts.length > 10 && (
                   <div
-                    onClick={() => setPagination(pagination + 1)}
+                  onClick={() => {
+                    setPagination(pagination + 1);
+                    window.scroll({
+                      top:0,
+                      behavior:'smooth'
+                    })
+                  }}
                     className="paginationBtns"
                   >
                     <p>Next</p>
@@ -234,6 +232,7 @@ const SportsThreePage = (props) => {
         </div>
       </div>
       <BannerSectionThree />
+      <Footer/>
     </Fragment>
   );
 };

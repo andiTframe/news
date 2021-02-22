@@ -9,6 +9,7 @@ import scrollIcon from '../../doc/img/icon/scroll.png';
 import black_phone from '../../doc/img/icon/black_phone.png';
 import BannerSectionThree from "../../components/BannerSectionThree";
 import MainMenuThree from "../../components/MainMenuThree";
+import Footer from '../Footer';
 
 class ContactUsThreePage extends Component {
     constructor(props) {
@@ -200,6 +201,7 @@ class ContactUsThreePage extends Component {
                     </div>
                 </div>
                 <BannerSectionThree/>
+                <Footer/>
             </Fragment>
         )
     }

@@ -5,13 +5,14 @@
   z-index: 999;
   height: 100vh;
   width: 300px;
+  max-width: 80%;
   overflow-y: auto;
   background: #ffffff;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease 0s;
 
   &.hideSideMenu {
-    right: -105%;
+    right: -130%;
   }
 
   .clox {

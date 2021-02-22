@@ -18,6 +18,7 @@ import NewsLetter from "../../components/NewsLetter";
 import CategoryFour from "../../components/CategoryFour";
 import banner4 from '../../doc/img/bg/banner4.png';
 import banner42 from '../../doc/img/bg/banner42.png';
+import Footer from '../Footer';
 
 
 
@@ -95,6 +96,7 @@ const HomePageThree = () => {
                     <div className="space-60"/>
                 </div>
             </div>
+            <Footer/>
         </Fragment>
     );
 };

@@ -30,7 +30,7 @@ const OurBlogSectionTwo = () => {
         <div className="row">
           <div className="col-12">
             <div className="heading">
-              <h2 className="widget-title">Our Latest Blog</h2>
+              <h2 className="widget-title">Our Latest Blogs</h2>
             </div>
           </div>
         </div>

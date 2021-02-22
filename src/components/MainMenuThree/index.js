@@ -49,6 +49,7 @@ export const menus = [
         linkText: 'Contact',
         link: '/contact'
     },
+  
 ];
 
 const MainMenuThree = ({className}) => {
