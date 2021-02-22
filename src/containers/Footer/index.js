@@ -56,7 +56,13 @@ const Footer = () => {
                       ...menus,
                       { linkText: "Privacy policy", link: "/legalInfo" },
                     ].map((item, index) => (
-                      <p onClick={() => history.push(item.link)}>
+                      <p onClick={() => {
+                        history.push(item.link);
+                        window.scroll({
+                          top:0,
+                          behavior:'smooth'
+                        })
+                      }}>
                         {item.linkText}
                       </p>
                     ))}
