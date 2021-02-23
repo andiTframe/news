@@ -16,7 +16,6 @@ import { addNextPost, addPrevPost } from "../../store/actions";
 import { turnCategoryIntoId } from "../../utils/commonFunctions";
 import Footer from "../Footer";
 
-
 const SportsThreePage = (props) => {
   const [posts, setPosts] = useState([]);
   const [pagination, setPagination] = useState(1);
@@ -32,27 +31,30 @@ const SportsThreePage = (props) => {
   }, []);
 
   const fetchPosts = async () => {
-    setLoading(true);
-    document.querySelector("body").style.overflow = "hidden";
-    
     let category = props.match.params.id;
     let id = turnCategoryIntoId(category);
+    if (id) {
+      setLoading(true);
+      document.querySelector("body").style.overflow = "hidden";
 
-    await axios
-      .get(
-        `https://news.tframe.de/news/wp-json/wp/v2/news?categories=${id}&page=${pagination}&per_page=11&_embed`
-      )
-      .then((res) => {
-        setPosts(res.data);
-        console.log(res.data)
-        document.querySelector("body").style.overflow = "auto";
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err, "error");
-      });
+      await axios
+        .get(
+          `https://news.tframe.de/wp-json/wp/v2/posts?categories=${id}&page=${pagination}&_embed`
+        )
+        .then((res) => {
+          setPosts(res.data);
+          document.querySelector("body").style.overflow = "auto";
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log('ereerereerrerer')
+          setLoading(false);
+          console.log(err, "error");
+        });
+    }
   };
 
+  
   useEffect(() => {
     if (props.match.params.id) {
       fetchPosts();
@@ -63,11 +65,10 @@ const SportsThreePage = (props) => {
     setForceRender(Math.random());
   }, [props.match.params.id]);
 
-  
-  const addPrevNext = (index)=>{
+  const addPrevNext = (index) => {
     dispatch(addPrevPost(posts[index - 1]));
     dispatch(addNextPost(posts[index + 1]));
-  }
+  };
 
   return (
     <Fragment>
@@ -110,8 +111,7 @@ const SportsThreePage = (props) => {
               </div>
               <div className="row justify-content-center">
                 {posts.length > 0 &&
-                  posts.slice(0,10).map((item, i) => {
-                    let date = item.date.split("T")[0];
+                  posts.slice(0, 10).map((item, i) => {
                     return (
                       <div key={i} className="col-lg-6">
                         <div
@@ -146,7 +146,7 @@ const SportsThreePage = (props) => {
                                   <p style={{ textTransform: "capitalize" }}>
                                     {props.match.params.id}
                                   </p>
-                                  <p>{format(new Date(date), "PP")}</p>
+                                  <p>{format(new Date(item.date.split("T")[0]), "PP")}</p>
                                 </div>
                               </div>
                               <div className="col-3 align-self-cnter">
@@ -177,7 +177,7 @@ const SportsThreePage = (props) => {
                               style={{ textTransform: "capitalize" }}
                               className="post-p"
                             >
-                              {item.acf.newsdescription.slice(0,100)}...
+                              {item.acf.newsdescription.slice(0, 100)}...
                             </p>
                           </div>
                         </div>
@@ -191,9 +191,9 @@ const SportsThreePage = (props) => {
                     onClick={() => {
                       setPagination(pagination - 1);
                       window.scroll({
-                        top:0,
-                        behavior:'smooth'
-                      })
+                        top: 0,
+                        behavior: "smooth",
+                      });
                     }}
                     className="paginationBtns"
                   >
@@ -202,13 +202,13 @@ const SportsThreePage = (props) => {
                 )}
                 {posts.length > 10 && (
                   <div
-                  onClick={() => {
-                    setPagination(pagination + 1);
-                    window.scroll({
-                      top:0,
-                      behavior:'smooth'
-                    })
-                  }}
+                    onClick={() => {
+                      setPagination(pagination + 1);
+                      window.scroll({
+                        top: 0,
+                        behavior: "smooth",
+                      });
+                    }}
                     className="paginationBtns"
                   >
                     <p>Next</p>
@@ -223,7 +223,10 @@ const SportsThreePage = (props) => {
                   <img src={banner4} alt="banner4" />
                 </Link>
               </div>
-              <WidgetFinanceTwo id={props.match.params.id} forceRender={forceRender} />
+              <WidgetFinanceTwo
+                id={props.match.params.id}
+                forceRender={forceRender}
+              />
               <NewsLetter
                 titleClass="white"
                 className="news_letter4 border-radious5"
@@ -233,7 +236,7 @@ const SportsThreePage = (props) => {
         </div>
       </div>
       <BannerSectionThree />
-      <Footer/>
+      <Footer />
     </Fragment>
   );
 };

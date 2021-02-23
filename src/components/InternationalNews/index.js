@@ -12,7 +12,7 @@ const InternationalNews = ({ className }) => {
     setLoading(true);
     axios
       .get(
-        `https://news.tframe.de/news/wp-json/wp/v2/news?categories=2&per_page=${perPage}&_embed`
+        `https://news.tframe.de/wp-json/wp/v2/posts?categories=3&per_page=${perPage}&_embed`
       )
       .then((res) => {
         setPosts(res.data);

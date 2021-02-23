@@ -31,7 +31,7 @@ const WidgetFinanceTwo = (props) => {
 
     axios
       .get(
-        `https://news.tframe.de/news/wp-json/wp/v2/news?categories=${id}&per_page=3&_embed`
+        `https://news.tframe.de/wp-json/wp/v2/posts?categories=${id}&per_page=3&_embed`
       )
       .then((res) => {
         setLeftPosts2(res.data);

@@ -16,31 +16,31 @@ function mostViewSort(data) {
 
 const turnIdIntoCategory = (id) => {
   let category;
-  if (id === 2) category = "world";
-  if (id === 3) category = "politics";
-  if (id === 4) category = "business";
-  if (id === 5) category = "tech";
-  if (id === 6) category = "health";
-  if (id === 7) category = "sports";
-  if (id === 8) category = "style";
-  if (id === 9) category = "magazine";
-  if (id === 10) category = "food";
-  if (id === 12) category = "trending";
+  if (id === 3) category = "welt";
+  if (id === 4) category = "politik";
+  if (id === 5) category = "geschäft";
+  if (id === 6) category = "technik";
+  if (id === 7) category = "gesundheit";
+  if (id === 8) category = "sport";
+  if (id === 9) category = "stil";
+  if (id === 10) category = "zeitschrift";
+  if (id === 11) category = "lebensmittel";
+  if (id === 12) category = "trend";
   return category;
 };
 
 const turnCategoryIntoId = (category) => {
   let id;
-  if (category === "world") id = 2;
-  if (category === "politics") id = 3;
-  if (category === "business") id = 4;
-  if (category === "tech") id = 5;
-  if (category === "health") id = 6;
-  if (category === "sports") id = 7;
-  if (category === "style") id = 8;
-  if (category === "magazine") id = 9;
-  if (category === "food") id = 10;
-  if (category === "trending") id = 12;
+  if (category === "welt") id = 3;
+  if (category === "politik") id = 4;
+  if (category === "geschäft") id = 5;
+  if (category === "technik") id = 6;
+  if (category === "gesundheit") id = 7;
+  if (category === "sport") id = 8;
+  if (category === "stil") id = 9;
+  if (category === "zeitschrift") id = 10;
+  if (category === "lebensmittel") id = 11;
+  if (category === "trend") id = 12;
 
   return id;
 };

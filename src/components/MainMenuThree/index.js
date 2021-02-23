@@ -6,47 +6,47 @@ import SearchModal from "../SearchModal";
 
 export const menus = [
     {
-        linkText: 'Trending',
-        link: '/category/trending'
+        linkText: 'Trend',
+        link: '/category/trend'
     },
     {
-        linkText: 'World',
-        link: '/category/world'
+        linkText: 'Welt',
+        link: '/category/welt'
     },
     {
-        linkText: 'Politics',
-        link: '/category/politics'
+        linkText: 'Politik',
+        link: '/category/politik'
     },
     {
-        linkText: 'Business',
-        link: '/category/business'
+        linkText: 'Geschäft',
+        link: '/category/geschäft'
     },
     {
-        linkText: 'Tech',
-        link: '/category/tech'
+        linkText: 'Technik',
+        link: '/category/technik'
     },
     {
-        linkText: 'Health',
-        link: '/category/health'
+        linkText: 'Gesundheit',
+        link: '/category/gesundheit'
     },
     {
         linkText: 'Sports',
-        link: '/category/sports'
+        link: '/category/sport'
     },
     {
-        linkText: 'Style',
-        link: '/category/style'
+        linkText: 'Stil',
+        link: '/category/stil'
     },
     {
-        linkText: 'Magazine',
-        link: '/category/magazine'
+        linkText: 'Zeitschrift',
+        link: '/category/zeitschrift'
     },
     {
-        linkText: 'Food',
-        link: '/category/food'
+        linkText: 'Lebensmittel',
+        link: '/category/lebensmittel'
     },
     {
-        linkText: 'Contact',
+        linkText: 'Kontakt',
         link: '/contact'
     },
   

@@ -36,7 +36,7 @@ const PostOneHThreePage = (props) => {
     if (props.match.params.id) {
       axios
         .get(
-          `https://news.tframe.de/news/wp-json/wp/v2/news/${props.match.params.id}?_embed`
+          `https://news.tframe.de/wp-json/wp/v2/posts/${props.match.params.id}?_embed`
         )
         .then((res) => {
           let id = res.data.categories[0];

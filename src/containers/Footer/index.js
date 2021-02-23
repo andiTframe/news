@@ -4,10 +4,11 @@ import { menus } from "../../components/MainMenuThree";
 import "./Footer.scss";
 import icon from "../../doc/img/newsIcon.png";
 import iconPar from "../../doc/img/dukLogo.png";
-import { AiFillFacebook,AiFillInstagram,AiFillTwitterCircle } from "react-icons/ai";
-
-
-
+import {
+  AiFillFacebook,
+  AiFillInstagram,
+  AiFillTwitterCircle,
+} from "react-icons/ai";
 
 const Footer = () => {
   const history = useHistory();
@@ -32,12 +33,12 @@ const Footer = () => {
                   </div>
                   <div className="contentTopLeftBottom">
                     <p>
-                      Ky portal mirëmbahet nga kompania "Telegrafi". Materialet
-                      dhe informacionet në këtë portal nuk mund të kopjohen, të
-                      shtypen, ose të përdoren në çfarëdo forme tjetër për
-                      qëllime përfitimi, pa miratimin e drejtuesve të
-                      "Telegrafit". Për ta shfrytëzuar materialin e këtij
-                      portali obligoheni t'i pranoni Kushtet e përdorimit. 
+                      This portal is maintained by the company "Telegrafi".
+                      Materials and information on this portal may not be
+                      copied, printed, or used in any other form for profit
+                      purposes, without the approval of the directors of
+                      "Telegraph". To utilize the material of this portal you
+                      are obliged to accept the Terms of Use.
                     </p>
                   </div>
                 </div>
@@ -56,13 +57,15 @@ const Footer = () => {
                       ...menus,
                       { linkText: "Privacy policy", link: "/legalInfo" },
                     ].map((item, index) => (
-                      <p onClick={() => {
-                        history.push(item.link);
-                        window.scroll({
-                          top:0,
-                          behavior:'smooth'
-                        })
-                      }}>
+                      <p
+                        onClick={() => {
+                          history.push(item.link);
+                          window.scroll({
+                            top: 0,
+                            behavior: "smooth",
+                          });
+                        }}
+                      >
                         {item.linkText}
                       </p>
                     ))}
@@ -70,15 +73,15 @@ const Footer = () => {
                 </div>
               </div>
               <div className="contentBottom">
-                  <div className="contentBottomLeft">
-                      <p>Follow Us :</p>
-                      <AiFillFacebook className='socialIcon'/>
-                      <AiFillInstagram className='socialIcon'/>
-                      <AiFillTwitterCircle className='socialIcon'/>
-                  </div>
-                  <div className="contentBottomRight">
-                      <p>&#169; Copyright {new Date().getFullYear()} News Portal</p>
-                  </div>
+                <div className="contentBottomLeft">
+                  <p>Follow Us :</p>
+                  <AiFillFacebook className="socialIcon" />
+                  <AiFillInstagram className="socialIcon" />
+                  <AiFillTwitterCircle className="socialIcon" />
+                </div>
+                <div className="contentBottomRight">
+                  <p>&#169; Copyright {new Date().getFullYear()} News Portal</p>
+                </div>
               </div>
             </div>
           </div>

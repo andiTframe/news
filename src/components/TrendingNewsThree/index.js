@@ -16,7 +16,7 @@ const TrendingNewsThree = () => {
     document.querySelector("body").style.overflow = "hidden";
     axios
       .get(
-        `https://news.tframe.de/news/wp-json/wp/v2/news?categories=12&page=1&_embed`
+        `https://news.tframe.de/wp-json/wp/v2/posts?categories=12&page=1&_embed`
       )
       .then((res) => {
         setPosts(res.data);
@@ -25,6 +25,8 @@ const TrendingNewsThree = () => {
       })
       .catch((err) => {
         console.log(err, "error");
+        setLoading(false);
+
       });
   }, []);
 

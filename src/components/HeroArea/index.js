@@ -16,7 +16,7 @@ const HeroArea = () => {
   useEffect(() => {
     axios
       .get(
-        `https://news.tframe.de/news/wp-json/wp/v2/news?page=1&per_page=4&_embed`
+        `https://news.tframe.de/wp-json/wp/v2/posts?page=1&per_page=4&_embed`
       )
       .then((res) => {
         setPosts(res.data);

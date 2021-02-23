@@ -12,11 +12,11 @@ const ScienceNews = () => {
     useEffect(() => {
         axios
           .get(
-            `https://news.tframe.de/news/wp-json/wp/v2/news?categories=8&_embed`
+            `https://news.tframe.de/wp-json/wp/v2/posts?categories=9&_embed`
           )
           .then((res) => {
             setPosts(res.data);
-            console.log(res.data)
+            // console.log(res.data)
           })
           .catch((err) => {
             console.log(err, "error");

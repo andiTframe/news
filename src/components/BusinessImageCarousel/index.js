@@ -3,12 +3,6 @@ import { Link } from "react-router-dom";
 import Swiper from "react-id-swiper";
 import FontAwesome from "../uiStyle/FontAwesome";
 import axios from "axios";
-import pop51 from "../../doc/img/popular/pop51.jpg";
-import pop52 from "../../doc/img/popular/pop52.jpg";
-import pop53 from "../../doc/img/popular/pop53.jpg";
-import pop54 from "../../doc/img/popular/pop54.jpg";
-import pop56 from "../../doc/img/popular/pop56.jpg";
-import gallery42 from "../../doc/img/gallary/gallery42.jpg";
 import { format } from "date-fns";
 
 const BusinessImageCarousel = () => {
@@ -18,7 +12,7 @@ const BusinessImageCarousel = () => {
 
   useEffect(() => {
     axios
-      .get(`https://news.tframe.de/news/wp-json/wp/v2/news?categories=5&per_page=5&_embed`)
+      .get(`https://news.tframe.de/wp-json/wp/v2/posts?categories=6&per_page=5&_embed`)
       .then((res) => {
         setPostsTech(res.data);
       })
@@ -29,7 +23,7 @@ const BusinessImageCarousel = () => {
 
   useEffect(() => {
     axios
-      .get(`https://news.tframe.de/news/wp-json/wp/v2/news?categories=4&per_page=5&_embed`)
+      .get(`https://news.tframe.de/wp-json/wp/v2/posts?categories=5&per_page=5&_embed`)
       .then((res) => {
         setPostsBizz(res.data);
       })

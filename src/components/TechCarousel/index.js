@@ -11,7 +11,7 @@ const BusinessCarousel = () => {
   useEffect(() => {
     axios
       .get(
-        `https://news.tframe.de/news/wp-json/wp/v2/news?categories=5&_embed`
+        `https://news.tframe.de/wp-json/wp/v2/posts?categories=6&_embed`
       )
       .then((res) => {
         setPosts(res.data);

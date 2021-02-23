@@ -13,7 +13,7 @@ const OurBlogSectionTwo = () => {
   useEffect(() => {
     axios
       .get(
-        `https://news.tframe.de/news/wp-json/wp/v2/news?page=1&per_page=3&_embed`
+        `https://news.tframe.de/wp-json/wp/v2/posts?page=1&per_page=3&_embed`
       )
       .then((res) => {
         setLatestPosts(res.data);
@@ -41,6 +41,7 @@ const OurBlogSectionTwo = () => {
                 <div className="post_img border-radious5">
                   <div className="img_wrap">
                     <img
+                      style={{height:'226px'}}
                       src={
                         item._embedded?.["wp:featuredmedia"]?.[0]?.[
                           "source_url"
