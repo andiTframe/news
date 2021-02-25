@@ -2,13 +2,13 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { menus } from "../../components/MainMenuThree";
 import "./Footer.scss";
-import icon from "../../doc/img/newsIcon.png";
-import iconPar from "../../doc/img/dukLogo.png";
 import {
   AiFillFacebook,
   AiFillInstagram,
   AiFillTwitterCircle,
 } from "react-icons/ai";
+import img from '../../assets/birdPng.png'
+
 
 const Footer = () => {
   const history = useHistory();
@@ -24,11 +24,11 @@ const Footer = () => {
               <div className="contentTop">
                 <div className="contentTopLeft">
                   <div className="contentTopLeftTop">
-                    <img src={icon} alt="" />
+                    <img src={img} alt="" />
                     <div className="contentTopLeftTopText">
                       <p>News Portal sh.p.k.</p>
                       <p>Rr. Berlin Germany, Nr.29, Berlin Germany</p>
-                      <p>info@telegrafi.com 038 224 093 - +383 48 222 355</p>
+                      <p>info@news.com 038 224 093 - +383 48 222 355</p>
                     </div>
                   </div>
                   <div className="contentTopLeftBottom">
@@ -37,7 +37,7 @@ const Footer = () => {
                       Materials and information on this portal may not be
                       copied, printed, or used in any other form for profit
                       purposes, without the approval of the directors of
-                      "Telegraph". To utilize the material of this portal you
+                      "news portal". To utilize the material of this portal you
                       are obliged to accept the Terms of Use.
                     </p>
                   </div>
@@ -46,10 +46,10 @@ const Footer = () => {
                   <div className="partners">
                     <p>Partners</p>
                     <div className="partnersImgs">
-                      <img src={iconPar} alt="" />
-                      <img src={iconPar} alt="" />
-                      <img src={iconPar} alt="" />
-                      <img src={iconPar} alt="" />
+                      <img src={img} alt="" />
+                      <img src={img} alt="" />
+                      <img src={img} alt="" />
+                      <img src={img} alt="" />
                     </div>
                   </div>
                   <div className="menusDiv">

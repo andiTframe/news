@@ -1,26 +1,22 @@
 import React, { Fragment, useEffect } from "react";
 import MainMenuThree from "../../components/MainMenuThree";
 import BannerSectionThree from "../../components/BannerSectionThree";
-import FollowUs from "../../components/FollowUs";
 import WidgetFinanceTwo from "../../components/WidgetFinanceTwo";
 import NewsLetter from "../../components/NewsLetter";
 import { Link } from "react-router-dom";
 import FontAwesome from "../../components/uiStyle/FontAwesome";
 import CategoryFour from "../../components/CategoryFour";
-import PostOnePagination from "../../components/PostOnePagination";
 import ReactHtmlParser from "react-html-parser";
 import { format } from "date-fns";
 
-import banner4 from "../../doc/img/bg/banner4.png";
-import finance41 from "../../doc/img/finance/finance41.jpg";
-import author2 from "../../doc/img/author/author2.png";
 import OurBlogSectionTwo from "../../components/OurBlogSectionTwo";
-import BlogComment from "../../components/BlogComment";
 import axios from "axios";
 import { useState } from "react";
 import Loader from "../Loader/Loader";
 import { turnIdIntoCategory } from "../../utils/commonFunctions";
 import Footer from "../Footer";
+import img from '../../assets/390x312.jpg'
+
 
 const PostOneHThreePage = (props) => {
   const [news, setNews] = useState(null);
@@ -89,12 +85,10 @@ const PostOneHThreePage = (props) => {
                   <div className="page_comments">
                     <ul className="inline">
                       <li>
-                        <FontAwesome name="comment" />
-                        563
+                       
                       </li>
                       <li>
-                        <FontAwesome name="fire" />
-                        536
+                        
                       </li>
                     </ul>
                   </div>
@@ -139,7 +133,7 @@ const PostOneHThreePage = (props) => {
                   <div className="author">
                     <div className="author_img">
                       <div className="author_img_wrap">
-                        <img src={author2} alt="author2" />
+                        <img src={img} alt="img" />
                       </div>
                     </div>
                     <Link to="">{news && news._embedded.author[0].name}</Link>
@@ -153,42 +147,15 @@ const PostOneHThreePage = (props) => {
                     </ul>
                   </div>
                 </div>
-                {/* <div className="col-lg-6 align-self-center">
-                  <div className="author_social inline text-right">
-                    <ul>
-                      <li>
-                        <Link to="/">
-                          <FontAwesome name="instagram" />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/">
-                          <FontAwesome name="facebook-f" />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/">
-                          <FontAwesome name="youtube" />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/">
-                          <FontAwesome name="instagram" />
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div> */}
               </div>
               {news && ReactHtmlParser(news.content.rendered)}
 
               <div className="space-40" />
-              {/* <PostOnePagination id={props.match.params.id} /> */}
             </div>
             <div className="col-md-6 col-lg-4">
               <div className="banner2 mb30 border-radious5">
                 <Link to="">
-                  <img src={banner4} alt="banner4" />
+                  <img src={img} alt="img" />
                 </Link>
               </div>
               <WidgetFinanceTwo />
@@ -203,9 +170,6 @@ const PostOneHThreePage = (props) => {
       </div>
       <div className="space-60" />
       <OurBlogSectionTwo />
-      {/* <div className="space-60" /> */}
-      {/* <BlogComment theme={3} /> */}
-      {/* <div className="space-60" /> */}
       <BannerSectionThree />
       <Footer/>
     </Fragment>

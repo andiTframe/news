@@ -16,11 +16,9 @@ import FollowUs from "../../components/FollowUs";
 import WidgetOpinionNews from "../../components/WidgetOpinionNews";
 import NewsLetter from "../../components/NewsLetter";
 import CategoryFour from "../../components/CategoryFour";
-import banner4 from '../../doc/img/bg/banner4.png';
-import banner42 from '../../doc/img/bg/banner42.png';
 import Footer from '../Footer';
-
-
+import img390 from '../../assets/390x312.jpg'
+import img812 from '../../assets/812x100.jpg'
 
 
 const HomePageThree = () => {
@@ -43,7 +41,7 @@ const HomePageThree = () => {
                                     <WidgetFinanceTwo  title="Finance"/>
                                     <div className="banner2 mb30 border-radious5">
                                         <Link to="/">
-                                            <img src={banner4} alt="banner4"/>
+                                            <img src={img390} alt="img390"/>
                                         </Link>
                                     </div>
                                 </div>
@@ -58,7 +56,7 @@ const HomePageThree = () => {
                                     <InternationalNews  className="mb30" />
                                     <div className="banner_area mb30 xs-mt60">
                                         <Link to="/">
-                                            <img src={banner42} alt="banner42"/>
+                                            <img src={img812} alt="img812"/>
                                         </Link>
                                     </div>
                                     <ScienceNews/>
@@ -83,7 +81,7 @@ const HomePageThree = () => {
                                             <WidgetFinanceTwo title="Inernational"/>
                                             <div className="banner2 mb30 border-radious5  d-md-none d-xl-block">
                                                 <Link to="/">
-                                                    <img src={banner4} alt="banner4"/>
+                                                    <img src={img390} alt="img390"/>
                                                 </Link>
                                             </div>
                                         </div>

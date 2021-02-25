@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import FontAwesome from "../uiStyle/FontAwesome";
 import { useState } from "react";
 import { format } from "date-fns";
@@ -22,8 +22,7 @@ const OurBlogSectionTwo = () => {
         console.log(err, "errrprprr");
       });
   }, []);
-
-
+  const history  = useHistory();
   return (
     <div className="theme3_bg section-padding layout3">
       <div className="container">
@@ -39,7 +38,7 @@ const OurBlogSectionTwo = () => {
             <div key={i} className="col-md-6 col-lg-4">
               <div className="single_post post_type3 mb30 post_type15 border-radious5">
                 <div className="post_img border-radious5">
-                  <div className="img_wrap">
+                  <div style={{cursor:'pointer'}} onClick={()=>history.push(`/post/${item.id}`)} className="img_wrap">
                     <img
                       style={{height:'226px'}}
                       src={

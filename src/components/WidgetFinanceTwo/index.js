@@ -9,15 +9,16 @@ const WidgetFinanceTwo = (props) => {
   const [categoryTitle, setCategoryTitle] = useState("");
 
   const checkForOkId = () => {
-    let randomId = Math.floor(Math.random() * 11);
+    let randomId = Math.floor(Math.random() * 12);
     let catId = turnCategoryIntoId(props.id)
     while (
       randomId === catId ||
       randomId === 0 ||
       randomId === 1 ||
-      randomId === 11
+      randomId === 2 ||
+      randomId === 12
     ) {
-      randomId = Math.floor(Math.random() * 11);
+      randomId = Math.floor(Math.random() * 12);
     }
     return randomId;
     
@@ -28,7 +29,6 @@ const WidgetFinanceTwo = (props) => {
     let category = turnIdIntoCategory(id);
 
     setCategoryTitle(category);
-
     axios
       .get(
         `https://news.tframe.de/wp-json/wp/v2/posts?categories=${id}&per_page=3&_embed`

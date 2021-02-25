@@ -9,12 +9,13 @@ import FontAwesome from "../../components/uiStyle/FontAwesome";
 import axios from "axios";
 import { format } from "date-fns";
 
-import banner4 from "../../doc/img/bg/banner4.png";
 import Loader from "../Loader/Loader";
 import { useDispatch } from "react-redux";
 import { addNextPost, addPrevPost } from "../../store/actions";
 import { turnCategoryIntoId } from "../../utils/commonFunctions";
 import Footer from "../Footer";
+import img from '../../assets/390x312.jpg'
+
 
 const SportsThreePage = (props) => {
   const [posts, setPosts] = useState([]);
@@ -219,7 +220,7 @@ const SportsThreePage = (props) => {
             <div className="col-md-6 col-lg-4">
               <div className="banner2 mb30 border-radious5">
                 <Link to="">
-                  <img src={banner4} alt="banner4" />
+                  <img src={img} alt="img" />
                 </Link>
               </div>
               <WidgetFinanceTwo

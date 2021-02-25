@@ -3,7 +3,7 @@ import {NavLink, useHistory} from "react-router-dom";
 import FontAwesome from "../uiStyle/FontAwesome";
 import SidebarMenu from "../SidebarMenu";
 import SearchModal from "../SearchModal";
-
+import logo from '../../assets/logo-newspaper.svg'
 export const menus = [
     {
         linkText: 'Trend',
@@ -70,7 +70,7 @@ const MainMenuThree = ({className}) => {
                                         <div id="navbarSupportedContent"
                                              className="collapse navbar-collapse navbar-responsive-collapse">
                                                  <div onClick={()=>history.push('/')} className='headerLogoA'>
-                                                     <p>News Protal</p>
+                                                     <img src={logo} alt=""/>
                                                  </div>
                                             <ul className="nav navbar-nav" id="scroll">
                                                 {menus.length > 0 ? menus.map((item, i) => (
