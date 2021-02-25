@@ -217,7 +217,6 @@ const SportsThreePage = (props) => {
               </div>
             </div>
             <div className="col-md-6 col-lg-4">
-              <FollowUs title="Follow Us" />
               <div className="banner2 mb30 border-radious5">
                 <Link to="">
                   <img src={banner4} alt="banner4" />

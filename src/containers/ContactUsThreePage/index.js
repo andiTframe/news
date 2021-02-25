@@ -194,7 +194,6 @@ class ContactUsThreePage extends Component {
                                 </div>
                             </div>
                             <div className="col-lg-4">
-                                <FollowUs title="Follow Us"/>
                                 <NewsLetter/>
                             </div>
                         </div>

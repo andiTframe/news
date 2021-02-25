@@ -118,7 +118,6 @@ const FooterAreaThree = () => {
                             </div>
                             <div className="col-lg-6">
                                 <NewsLetter/>
-                                <FollowUs title="Follow Us"/>
                                 <div className="banner2 mb30 ">
                                     <Link to="/" className="border-radious5">
                                         <img src={banner4} alt="banner"/>

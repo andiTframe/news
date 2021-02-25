@@ -114,7 +114,6 @@ const FooterAreaTwo = () => {
                             </div>
                             <div className="col-lg-6">
                                 <NewsLetter input_white={true} className="news3bg mb30 border-radious5"/>
-                                <FollowUs title="Follow Us"/>
                                 <div className="banner2 mb30 ">
                                     <Link to="/" className="border-radious5">
                                         <img src={banner} alt="banner"/>

@@ -84,6 +84,20 @@ const HeroArea = () => {
                     );
                   })}
                 </div>
+                <div onClick={()=>{
+                  if (activeIndex===0) {
+                    setActiveIndex(3);
+                  }else{
+                    setActiveIndex(activeIndex-1);
+                  }
+                }} className='welcomePrev'>{"<"}</div>
+                <div onClick={()=>{
+                  if (activeIndex===3) {
+                    setActiveIndex(0);
+                  }else{
+                    setActiveIndex(activeIndex+1)
+                  }
+                }} className='welcomeNext'>{">"}</div>
               </div>
             </div>
           </div>

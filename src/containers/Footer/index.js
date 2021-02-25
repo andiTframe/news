@@ -26,14 +26,14 @@ const Footer = () => {
                   <div className="contentTopLeftTop">
                     <img src={icon} alt="" />
                     <div className="contentTopLeftTopText">
-                      <p>TELEGRAFI sh.p.k.</p>
-                      <p>Rr. Rexhep Mala, Aktash, Nr.29, Prishtinë, Kosovë</p>
+                      <p>News Portal sh.p.k.</p>
+                      <p>Rr. Berlin Germany, Nr.29, Berlin Germany</p>
                       <p>info@telegrafi.com 038 224 093 - +383 48 222 355</p>
                     </div>
                   </div>
                   <div className="contentTopLeftBottom">
                     <p>
-                      This portal is maintained by the company "Telegrafi".
+                      This portal is maintained by the company "New Portal".
                       Materials and information on this portal may not be
                       copied, printed, or used in any other form for profit
                       purposes, without the approval of the directors of

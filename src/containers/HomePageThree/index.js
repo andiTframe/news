@@ -75,7 +75,6 @@ const HomePageThree = () => {
                                 <div className="col-md-12 col-xl-4">
                                     <div className="row">
                                         <div className="col-lg-6 col-xl-12 col-md-6">
-                                            <FollowUs className="padding20 white_bg shadow7" title="Follow Us"/>
                                             <WidgetOpinionNews/>
                                         </div>
                                         <div className="col-md-6 col-xl-12">
